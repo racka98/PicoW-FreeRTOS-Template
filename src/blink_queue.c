@@ -1,7 +1,7 @@
 /**
  * Showing the Tasks Queue functionality on FreeRTOS.
- *
- * NOTE: Two Tasks are scheduled but both run on a single core (Core0)
+ * This example shows how tasks can communicate with one another via Queues
+ * NOTE: This example runs on a single core (Core0)
  */
 
 #include <FreeRTOS.h>
