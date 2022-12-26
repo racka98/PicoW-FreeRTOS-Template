@@ -1,5 +1,5 @@
 add_executable(src 
-        main.c
+        blink.c
         )
 
 # pull in common dependencies

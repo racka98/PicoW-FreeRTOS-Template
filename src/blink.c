@@ -29,12 +29,13 @@ int main() {
 }
 
 void led_task() {
+    bool is_connected = true;
     if (cyw43_arch_init()) {
         printf("WiFi init failed");
-        return;
+        is_connected = false;
     }
 
-    while (true) {
+    while (is_connected) {
         cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 1);
         vTaskDelay(100);  // Delay by TICKS defined by FreeRTOS priorities
         cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 0);
