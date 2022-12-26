@@ -18,4 +18,10 @@ These environment variable should be used when calling `CMake` or defined in VSC
 
 To rename the project simply open the root `CMakeLists.txt` and change `project(pico_freertos C CXX ASM)` to `project(your_project_name C CXX ASM)`.
 
+## Outputs
+
+After building, your binary will be under `build/src/src.uf2`. Take the `src.uf2` and push it you Pico W with `BOOTSEL`.
+
+NOTE: The [setup video](https://www.youtube.com/watch?v=BAoTBg8MJJ4) mentioned before should show you how to build on VS Code.
+
 Inspired by the [Learn Embedded Systems video series](https://www.youtube.com/watch?v=jCZxStjzGA8&list=PLEB5F4gTNK68IlRIJtcJ_2cW4dSdmreTw&index=14) on YouTube.
