@@ -26,6 +26,8 @@ int main() {
     while (true) {
         // Your program should never get here
     };
+
+    return 0;
 }
 
 void led_task(void *pvParameters) {

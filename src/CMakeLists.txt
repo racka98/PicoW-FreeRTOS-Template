@@ -1,6 +1,7 @@
 add_executable(src 
         blink.c
         blink_queue.c
+        scheduling_priorities.c
         )
 
 # pull in common dependencies
