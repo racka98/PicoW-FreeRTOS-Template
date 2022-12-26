@@ -28,7 +28,7 @@ int pretend_main_scheduling_and_priorities() {
         printf("LED Turned ON!");
     }
 
-    // Create Your LED Task
+    // Create Your Task1
     xTaskCreate(
         task1,    // Task to be run
         "TASK1",  // Name of the Task for debugging and managing its Task Handle
@@ -38,7 +38,7 @@ int pretend_main_scheduling_and_priorities() {
         NULL      // Task Handle if available for managing the task
     );
 
-    // Create Your USB Task
+    // Create Your Task2
     xTaskCreate(
         task2,    // Task to be run
         "TASK2",  // Name of the Task for debugging and managing its Task Handle
