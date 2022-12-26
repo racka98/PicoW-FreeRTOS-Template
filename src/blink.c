@@ -5,7 +5,7 @@
 #include "pico/cyw43_arch.h"
 #include "pico/stdlib.h"
 
-void led_task();
+void led_task(void *pvParameters);
 
 int main() {
     stdio_init_all();  // Initialize
@@ -13,7 +13,7 @@ int main() {
     // Create Your Task
     xTaskCreate(
         led_task,    // Task to be run
-        "LED_Task",  // Name of the Task for debugging and managing its Task Handle
+        "LED_TASK",  // Name of the Task for debugging and managing its Task Handle
         256,         // Stack depth to be allocated for use with task's stack (see docs)
         NULL,        // Arguments needed by the Task (NULL because we don't have any)
         1,           // Task Priority - Higher the number the more priority [max is (configMAX_PRIORITIES - 1) provided in FreeRTOSConfig.h]
@@ -28,7 +28,7 @@ int main() {
     };
 }
 
-void led_task() {
+void led_task(void *pvParameters) {
     bool is_connected = true;
     if (cyw43_arch_init()) {
         printf("WiFi init failed");
