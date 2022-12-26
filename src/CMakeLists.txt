@@ -3,6 +3,7 @@ add_executable(src
         blink_queue.c
         scheduling_priorities.c
         mutex.c
+        semaphore.c
         )
 
 # pull in common dependencies
