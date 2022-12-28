@@ -5,10 +5,14 @@
 #include "pico/cyw43_arch.h"
 #include "pico/stdlib.h"
 
+#define MAIN_LED_DELAY 800
+
 void led_task(void *pvParameters);
 
 int main() {
     stdio_init_all();  // Initialize
+
+    printf("Main Program Executation start!\n");
 
     // Create Your Task
     xTaskCreate(
@@ -33,14 +37,16 @@ int main() {
 void led_task(void *pvParameters) {
     bool is_connected = true;
     if (cyw43_arch_init()) {
-        printf("WiFi init failed");
+        printf("WiFi init failed\n");
         is_connected = false;
     }
 
     while (is_connected) {
         cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 1);
-        vTaskDelay(100);  // Delay by TICKS defined by FreeRTOS priorities
+        printf("LED tuned ON!\n");
+        vTaskDelay(MAIN_LED_DELAY);  // Delay by TICKS defined by FreeRTOS priorities
         cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 0);
-        vTaskDelay(100);
+        printf("LED turned OFF\n");
+        vTaskDelay(MAIN_LED_DELAY);
     }
 }

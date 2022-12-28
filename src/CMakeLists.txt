@@ -1,4 +1,4 @@
-add_executable(src 
+add_executable(${NAME}  
         blink.c
         blink_queue.c
         scheduling_priorities.c
@@ -7,7 +7,7 @@ add_executable(src
         )
 
 # pull in common dependencies
-target_link_libraries(src
+target_link_libraries(${NAME} 
         pico_stdlib              # for core functionality
         pico_cyw43_arch_lwip_threadsafe_background  # we need Wifi
         FreeRTOS-Kernel-Heap4 # FreeRTOS kernel and dynamic heap
@@ -15,10 +15,10 @@ target_link_libraries(src
 
         
 # Enable print functionality on usb & disable on uart
-pico_enable_stdio_usb(src 1) 
-pico_enable_stdio_uart(src 0)
+pico_enable_stdio_usb(${NAME}  1) 
+pico_enable_stdio_uart(${NAME}  0)
 
 # create map/bin/hex file etc.
-pico_add_extra_outputs(src)
+pico_add_extra_outputs(${NAME} )
 
-target_include_directories(src PRIVATE ${CMAKE_CURRENT_LIST_DIR} )
+target_include_directories(${NAME}  PRIVATE ${CMAKE_CURRENT_LIST_DIR} )
