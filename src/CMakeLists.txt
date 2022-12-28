@@ -4,6 +4,7 @@ add_executable(${NAME}
         scheduling_priorities.c
         mutex.c
         semaphore.c
+        ../local-libs/ssd1306/ssd1306.c
         )
 
 # pull in common dependencies
@@ -11,6 +12,9 @@ target_link_libraries(${NAME}
         pico_stdlib              # for core functionality
         pico_cyw43_arch_lwip_threadsafe_background  # we need Wifi
         FreeRTOS-Kernel-Heap4 # FreeRTOS kernel and dynamic heap
+        hardware_i2c # Hardware I2C
+        LWIP_PORT                          # LWIP config files
+        FREERTOS_PORT                      # FreeRTOS config files
         )
 
         
