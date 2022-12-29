@@ -5,7 +5,9 @@ add_executable(${NAME}
         mutex.c
         semaphore.c
         display_run.c
+        temp_display_queue.c
         ../local-libs/ssd1306/ssd1306.c # SSD1306 OLED DISPLAY LOCAL LIBRARY
+        ../local-libs/helpers/string_operations.c # MY STRING HELPERS
         )
 
 # pull in common dependencies
@@ -14,6 +16,7 @@ target_link_libraries(${NAME}
         pico_cyw43_arch_lwip_threadsafe_background  # we need Wifi
         FreeRTOS-Kernel-Heap4                       # FreeRTOS kernel and dynamic heap
         hardware_i2c                                # Hardware I2C
+        hardware_adc                                # Hardware ADC
         LWIP_PORT                                   # LWIP config files
         FREERTOS_PORT                               # FreeRTOS config files
         )
@@ -29,4 +32,5 @@ pico_add_extra_outputs(${NAME} )
 target_include_directories(${NAME}  
         PRIVATE ${CMAKE_CURRENT_LIST_DIR}
         PRIVATE ../local-libs/ssd1306 # SSD1306 OLED DISPLAY LOCAL LIBRARY
+        PRIVATE ../local-libs/helpers # ALL HELPER LOCAL LIBRARIES
         )

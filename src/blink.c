@@ -5,6 +5,7 @@
 #include <task.h>
 
 #include "display_run.h"
+#include "temp_display_queue.h"
 
 #define MAIN_LED_DELAY 800
 
@@ -12,11 +13,20 @@ void led_task(void *pvParameters);
 
 void display_task(void *pvParameters);
 
+void start_tasks();
+
 int main() {
     stdio_init_all();  // Initialize
 
     printf("Main Program Executation start!\n");
 
+    // start_tasks();
+    create_temp_display_queue_task();
+
+    return 0;
+}
+
+void start_tasks() {
     // Create Your Task
     xTaskCreate(
         display_task,  // Task to be run
@@ -33,8 +43,6 @@ int main() {
     while (true) {
         // Your program should never get here
     };
-
-    return 0;
 }
 
 void display_task(void *pvParameters) {
