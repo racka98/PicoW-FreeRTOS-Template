@@ -4,8 +4,10 @@
 		"ssd1306_font.h": "c",
 		"*.tcc": "c",
 		"cstdlib": "c",
-		"memory": "c"
+		"memory": "c",
+		"ssd1306.h": "c"
 	},
 	"C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0 }",
-	"C_Cpp.clang_format_style": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0 }"
+	"C_Cpp.clang_format_style": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0 }",
+    "picowgo.openOnStart": true // Just here to use PicoW-Go extension for Serial
 }

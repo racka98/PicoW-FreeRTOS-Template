@@ -29,12 +29,12 @@ int main() {
 void start_tasks() {
     // Create Your Task
     xTaskCreate(
-        display_task,  // Task to be run
-        "LED_TASK",    // Name of the Task for debugging and managing its Task Handle
-        1024,          // Stack depth to be allocated for use with task's stack (see docs)
-        NULL,          // Arguments needed by the Task (NULL because we don't have any)
-        1,             // Task Priority - Higher the number the more priority [max is (configMAX_PRIORITIES - 1) provided in FreeRTOSConfig.h]
-        NULL           // Task Handle if available for managing the task
+        led_task,    // Task to be run
+        "LED_TASK",  // Name of the Task for debugging and managing its Task Handle
+        1024,        // Stack depth to be allocated for use with task's stack (see docs)
+        NULL,        // Arguments needed by the Task (NULL because we don't have any)
+        1,           // Task Priority - Higher the number the more priority [max is (configMAX_PRIORITIES - 1) provided in FreeRTOSConfig.h]
+        NULL         // Task Handle if available for managing the task
     );
 
     // Should start you scheduled Tasks (such as the LED_Task above)

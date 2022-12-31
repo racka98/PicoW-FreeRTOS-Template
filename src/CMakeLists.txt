@@ -7,6 +7,8 @@ add_executable(${NAME}
         display_run.c
         temp_display_queue.c
         ../local-libs/ssd1306/ssd1306.c # SSD1306 OLED DISPLAY LOCAL LIBRARY
+        ../local-libs/am2320/am2320.c # AM2320 SENSOR LOCAL LIBRARY
+        ../local-libs/am2320/am2320_2.c # AM2320 SENSOR LOCAL LIBRARY
         ../local-libs/helpers/string_operations.c # MY STRING HELPERS
         )
 
@@ -32,5 +34,6 @@ pico_add_extra_outputs(${NAME} )
 target_include_directories(${NAME}  
         PRIVATE ${CMAKE_CURRENT_LIST_DIR}
         PRIVATE ../local-libs/ssd1306 # SSD1306 OLED DISPLAY LOCAL LIBRARY
+        PRIVATE ../local-libs/am2320 # AM2320 SENSOR LOCAL LIBRARY
         PRIVATE ../local-libs/helpers # ALL HELPER LOCAL LIBRARIES
         )

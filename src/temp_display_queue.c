@@ -96,9 +96,9 @@ static void on_board_temp_task(void *pvParameters) {
         ledSendValue = 1;
         send_queue_value(&ledSendValue);
         uint16_t raw = adc_read();  // take the raw value from 5th ADC channel
-        float diodeVoltage = raw * CONVERSION_FACTOR;
-        float temp = 27 - (diodeVoltage - 0.706) / 0.001721;  // Provided in the Pico datasheet
-        write_temp_to_display(&display, &temp, &diodeVoltage);
+        float dieVoltage = raw * CONVERSION_FACTOR;
+        float temp = 27 - (dieVoltage - 0.706) / 0.001721;  // Provided in the Pico datasheet
+        write_temp_to_display(&display, &temp, &dieVoltage);
         ledSendValue = 0;
         send_queue_value(&ledSendValue);
         vTaskDelay(200);
